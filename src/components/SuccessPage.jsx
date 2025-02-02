@@ -4,7 +4,7 @@ import replaceToken from "../utilities/replaceToken";
 import { useNavigate } from "react-router-dom";
 import routes from "../constants/routes";
 import AppContext from "../appContext";
-import CompleteIcon from "../svg/complete.svg";
+import CompleteIcon from "../svg/elephant.svg";
 
 function SuccessPage() {
   const navigate = useNavigate();
@@ -37,15 +37,18 @@ function SuccessPage() {
   }
 
   return (
-    <div>
+    <div className="m-8">
       <CompleteIcon width={150} height={150} />
+      <p>Whoa! That's Elephant!</p>
       <p>
         {replaceToken(successPageStrings.successStringTitle, postId, title)}
       </p>
       <div>{replaceToken(successPageStrings.createdBy, author.name)}</div>
+      <div className="mt-2 mb-2">
       <button className="btn btn-primary" onClick={onGotoAddpageClick}>
         {successPageStrings.gotoAddPageButton}
       </button>
+      </div>
       <button className="btn btn-secondary" onClick={onGotoHomepageClick}>
         {successPageStrings.gotoHomePageButton}
       </button>
