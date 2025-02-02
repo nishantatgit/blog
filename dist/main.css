@@ -1,4 +1,10 @@
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 body {
   background-color: white;
 }
@@ -176428,7 +176434,10 @@ html,body,div,p,section,a,ul,ol,h1,h2,h3,h4,h5,h6,nav,article {
   }
 } 
 
-
+svg {
+  height: 300px;
+  width: 300px;
+}
 @charset "UTF-8";
 
 /*!

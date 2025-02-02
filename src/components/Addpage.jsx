@@ -61,6 +61,8 @@ function Addpage() {
   }
 
   return (
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
     <form id="create-blog-post" noValidate onSubmit={onSubmit}>
       <div className="mb-3">
         <label forhtml="blog-title-input" className="form-label">
@@ -96,6 +98,8 @@ function Addpage() {
         value="Create Blog"
       />
     </form>
+    </div>
+    </div>
   );
 }
 

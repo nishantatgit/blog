@@ -9,6 +9,7 @@ import Loader from "./Loader";
 import { homepageStrings } from "../constants/strings";
 import { useNavigate, generatePath } from "react-router-dom";
 import routes from "../constants/routes";
+import delay from "../utilities/delay";
 
 function Homepage() {
   const { state, dispatch } = useContext(AppContext);
@@ -64,15 +65,19 @@ function Homepage() {
   function getBlogTiles(blogsList) {
     return blogsList.map((blog) => {
       return (
-        <li key={blog.postId} className="m-6">
-          <div className="tile">
-            <h2>{blog.title}</h2>
+        <li key={blog.postId} className="mt-12 pb-2 border-bottom">
+          <div className="tile row">
+            <div className="col-8">
+            <h2 className="h4 grey">{blog.title}</h2>
+            </div>
+            <div className="col-4 text-right">
             <button
               className="btn btn-primary"
               onClick={readMoreClickHandler.bind(null, blog.postId)}
             >
               {homepageStrings.readMoreButtonLabel}
             </button>
+            </div>
           </div>
         </li>
       );
@@ -82,8 +87,10 @@ function Homepage() {
   function getBlogsList(blogs) {
     const orderedBlogList = filterBlogs(sortBlogs(blogs));
     return (
-      <div className="tile-list">
+      <div className="tile-list row">
+        <div className="col-md-10 offset-md-1">
         <ul>{getBlogTiles(orderedBlogList)}</ul>
+        </div>
       </div>
     );
   }
@@ -97,7 +104,6 @@ function Homepage() {
     async function getAllPosts() {
       try {
         const data = await getPost(urls.GET_ALL_SERVER_URL);
-        console.log("data received by server ", data);
         dispatch(setBlogsAll(data));
       } catch (error) {
         console.log(" error : ", error);
