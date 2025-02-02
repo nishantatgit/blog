@@ -5,6 +5,8 @@ import Loader from "./Loader";
 import urls, { compileUrls } from "../constants/urls";
 import { setCurrentBlogData } from "../actions";
 import AppContext from "../appContext";
+import "./Readpage.css";
+
 function Readpage() {
   const { id } = useParams();
   const [isLoading, setLoaderState] = useState(true);
@@ -32,9 +34,11 @@ function Readpage() {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="container">
-      <h2>{state.currentBlog.title}</h2>
-      <p>{state.currentBlog.content}</p>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2>{state.currentBlog.title}</h2>
+        <p>{state.currentBlog.content}</p>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,10 @@
+.tile-list ul {
+  padding: 0;
+}
 
+.tile-list li {
+  padding: 0;
+}
 .loader {
   position: absolute;
   top: 50%;
@@ -189795,3 +189801,4 @@ textarea.form-control-lg{
     display:none!important
   }
 }
+

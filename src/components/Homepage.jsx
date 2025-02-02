@@ -10,6 +10,7 @@ import { homepageStrings } from "../constants/strings";
 import { useNavigate, generatePath } from "react-router-dom";
 import routes from "../constants/routes";
 import delay from "../utilities/delay";
+import getLocaleDate from "../utilities/getLocaleDate";
 
 function Homepage() {
   const { state, dispatch } = useContext(AppContext);
@@ -68,7 +69,8 @@ function Homepage() {
         <li key={blog.postId} className="mt-12 pb-2 border-bottom">
           <div className="tile row">
             <div className="col-8">
-            <h2 className="h4 grey">{blog.title}</h2>
+            <h2 className="h5">{blog.title}</h2>
+            <div><span>{getLocaleDate(blog.lastModifiedAt)}</span></div>
             </div>
             <div className="col-4 text-right">
             <button
