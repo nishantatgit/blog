@@ -61,34 +61,36 @@ function Homepage() {
     }
   }
 
-  function getBlogTiles(blogsList){
+  function getBlogTiles(blogsList) {
     return blogsList.map((blog) => {
-        return (
-          <li key={blog.postId} className="m-6">
-            <div className="tile">
-              <h2>{blog.title}</h2>
-              <button className="btn btn-primary" onClick={readMoreClickHandler.bind(null, blog.postId)}>
-                {homepageStrings.readMoreButtonLabel}
-              </button>
-            </div>
-          </li>
-        );
-      });
+      return (
+        <li key={blog.postId} className="m-6">
+          <div className="tile">
+            <h2>{blog.title}</h2>
+            <button
+              className="btn btn-primary"
+              onClick={readMoreClickHandler.bind(null, blog.postId)}
+            >
+              {homepageStrings.readMoreButtonLabel}
+            </button>
+          </div>
+        </li>
+      );
+    });
   }
 
   function getBlogsList(blogs) {
     const orderedBlogList = filterBlogs(sortBlogs(blogs));
-    return <div className="tile-list">
-        <ul>
-            {getBlogTiles(orderedBlogList)}
-        </ul>
-    </div>
-    
+    return (
+      <div className="tile-list">
+        <ul>{getBlogTiles(orderedBlogList)}</ul>
+      </div>
+    );
   }
 
   function readMoreClickHandler(id, e) {
     e.preventDefault();
-    navigate(generatePath(routes.READ_BLOG, {id}));
+    navigate(generatePath(routes.READ_BLOG, { id }));
   }
 
   useEffect(() => {
