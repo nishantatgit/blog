@@ -7,11 +7,15 @@ import { setBlogsAll } from "../actions";
 import { sortOrder, filter } from "../constants/constants";
 import Loader from "./Loader";
 import { homepageStrings } from "../constants/strings";
+import { useNavigate, generatePath } from "react-router-dom";
+import routes from "../constants/routes";
 
 function Homepage() {
   const { state, dispatch } = useContext(AppContext);
   const [sortBy, setSortBy] = useState(sortOrder.BY_DATE_CREATED);
   const [filterBy, setFilterBy] = useState(filter.BY_TIME_RANGE);
+
+  const navigate = useNavigate();
 
   console.log("state ", state);
 
@@ -60,10 +64,10 @@ function Homepage() {
   function getBlogTiles(blogsList){
     return blogsList.map((blog) => {
         return (
-          <li key={blog.id} className="m-6">
+          <li key={blog.postId} className="m-6">
             <div className="tile">
               <h2>{blog.title}</h2>
-              <button className="btn btn-primary" onClick={readMoreClickHandler}>
+              <button className="btn btn-primary" onClick={readMoreClickHandler.bind(null, blog.postId)}>
                 {homepageStrings.readMoreButtonLabel}
               </button>
             </div>
@@ -82,8 +86,9 @@ function Homepage() {
     
   }
 
-  function readMoreClickHandler(e) {
-    alert("read more clicked");
+  function readMoreClickHandler(id, e) {
+    e.preventDefault();
+    navigate(generatePath(routes.READ_BLOG, {id}));
   }
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { ADD_BLOGS, SET_SUCCESS_PAGE_DATA } from "./actions";
+import { ADD_BLOGS, SET_SUCCESS_PAGE_DATA, SET_CURRENT_BLOG_DATA } from "./actions";
 function globalReducer(state, action){
 
     switch(action.type){
@@ -15,6 +15,13 @@ function globalReducer(state, action){
                     successPage : {
                         ...action.payload
                     }
+                }
+            }
+        case SET_CURRENT_BLOG_DATA: 
+            return {
+                ...state,
+                currentBlog : {
+                    ...action.payload
                 }
             }
         default: 

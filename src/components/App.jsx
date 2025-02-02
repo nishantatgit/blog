@@ -8,6 +8,7 @@ import "./app.css";
 import routes from "../constants/routes";
 import PageLayout from "./PageLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Readpage from "./Readpage";
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
             <Route path={routes.HOME} element={<Homepage />}></Route>
             <Route path={routes.CREATE_BLOG} element={<Addpage />}></Route>
             <Route path={routes.CREATION_SUCCESS} element={<SuccessPage />}></Route>
+            <Route path={routes.READ_BLOG} element={<Readpage />}></Route>
           </Routes>
         </PageLayout>
       </Router>
