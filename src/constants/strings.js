@@ -9,4 +9,12 @@ const successPageStrings = {
     gotoHomePageButton: "Goto Homepage"
 }
 
-export { globalStrings, successPageStrings };
+const homepageStrings = {
+    readMoreButtonLabel: "Read"
+}
+
+const loaderStrings = {
+    loadingMessage: "Loading ..."
+}
+
+export { globalStrings, successPageStrings, loaderStrings, homepageStrings };

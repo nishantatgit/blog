@@ -5,7 +5,7 @@ function globalReducer(state, action){
         case ADD_BLOGS: 
             return {
                 ...state,
-                ...action.payload
+                blogs : [...action.payload]
             }
         case SET_SUCCESS_PAGE_DATA: 
             return {

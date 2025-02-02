@@ -25,7 +25,7 @@ async function getPost(url) {
   try {
     const response = await fetch(url);
 
-    if (!response.OK) {
+    if (!response.ok) {
       throw new Error("Error occured wihle fetching data ");
     }
 

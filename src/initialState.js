@@ -9,3 +9,5 @@ const initialState = {
         successPage: {}
     }
 }
+
+export default initialState;
