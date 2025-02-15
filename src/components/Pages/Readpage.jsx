@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { getPost } from "../utilities/apiHelper";
+import { getPost } from "../../utilities/apiHelper";
 import { useParams } from "react-router-dom";
-import Loader from "./Loader";
-import urls, { compileUrls } from "../constants/urls";
-import { setCurrentBlogData } from "../actions";
-import AppContext from "../appContext";
+import Loader from "../Loader";
+import urls, { compileUrls } from "../../constants/urls";
+import { setCurrentBlogData } from "../../actions";
+import AppContext from "../../appContext";
 import "./Readpage.css";
 
 function Readpage() {

@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Homepage.css";
-import AppContext from "../appContext";
-import { getPost } from "../utilities/apiHelper";
-import urls from "../constants/urls";
-import { setBlogsAll } from "../actions";
-import { sortOrder, filter } from "../constants/constants";
-import Loader from "./Loader";
-import { homepageStrings } from "../constants/strings";
+import AppContext from "../../appContext";
+import { getPost } from "../../utilities/apiHelper";
+import urls from "../../constants/urls";
+import { setBlogsAll } from "../../actions";
+import { sortOrder, filter } from "../../constants/constants";
+import Loader from "../Loader";
+import { homepageStrings } from "../../constants/strings";
 import { useNavigate, generatePath } from "react-router-dom";
-import routes from "../constants/routes";
-import delay from "../utilities/delay";
-import getLocaleDate from "../utilities/getLocaleDate";
+import routes from "../../constants/routes";
+import delay from "../../utilities/delay";
+import getLocaleDate from "../../utilities/getLocaleDate";
 
 function Homepage() {
   const { state, dispatch } = useContext(AppContext);
@@ -115,7 +115,7 @@ function Homepage() {
     getAllPosts();
   }, []);
 
-  return !!state.blogs.length ? getBlogsList(state.blogs) : <Loader></Loader>;
+  return !!state.blogs.length ? getBlogsList(state.blogs) : <Loader/>;
 }
 
 export default Homepage;

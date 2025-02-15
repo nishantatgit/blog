@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import AppContext from "../appContext";
+import AppContext from "../../appContext";
 import "./Addpage.css";
-import { createPost } from "../utilities/apiHelper";
-import { validateInput } from "../utilities/formValidation";
-import sanitizeInput from "../utilities/sanitizeInput";
-import urls from "../constants/urls";
-import { setSuccessPageData } from "../actions";
+import { createPost } from "../../utilities/apiHelper";
+import { validateInput } from "../../utilities/formValidation";
+import sanitizeInput from "../../utilities/sanitizeInput";
+import urls from "../../constants/urls";
+import { setSuccessPageData } from "../../actions";
 import { useNavigate } from "react-router-dom";
-import routes from "../constants/routes";
+import routes from "../../constants/routes";
 
 function Addpage() {
   const { dispatch } = useContext(AppContext);

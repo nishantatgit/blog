@@ -1,4 +1,4 @@
-const IP_ADDRESS = "13.234.204.87";
+const IP_ADDRESS = "13.232.161.56";
 const urls = {
   POST_SERVER_URL: `http://${IP_ADDRESS}/blog/post`,
   GET_ALL_SERVER_URL: `http://${IP_ADDRESS}/blog/post`,

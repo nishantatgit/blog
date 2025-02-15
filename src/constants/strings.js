@@ -1,5 +1,6 @@
 const globalStrings = {
-    title : "Blog"
+    title : "Blog",
+    loginButtonLabel : "Login"
 }
 
 const successPageStrings = {

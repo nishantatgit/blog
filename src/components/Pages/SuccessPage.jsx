@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { successPageStrings } from "../constants/strings";
-import replaceToken from "../utilities/replaceToken";
+import { successPageStrings } from "../../constants/strings";
+import replaceToken from "../../utilities/replaceToken";
 import { useNavigate } from "react-router-dom";
-import routes from "../constants/routes";
-import AppContext from "../appContext";
-import CompleteIcon from "../svg/elephant.svg";
+import routes from "../../constants/routes";
+import AppContext from "../../appContext";
+import CompleteIcon from "../../svg/elephant.svg";
 
 function SuccessPage() {
   const navigate = useNavigate();

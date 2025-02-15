@@ -7,6 +7,9 @@ const initialState = {
     },
     pageData : {
         successPage: {}
+    },
+    user : {
+        loggedIn : false
     }
 }
 
