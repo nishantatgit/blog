@@ -77,13 +77,13 @@ function Homepage() {
       return (
         <a
           href="#"
-          className="text-black link-secondary link-underline-opacity-0"
+          className="text-black link-secondary link-underline-opacity-0 link-opacity-100-hover"
           onClick={readMoreClickHandler.bind(null, blog.postId)}
         >
-          <li key={blog.postId} className="mt-12 pb-2 border-bottom">
+          <li key={blog.postId} className="mt-12 pb-2">
             <div className="tile row">
               <div className="col-12">
-                <h2 className="h5">{blog.title}</h2>
+                <h2 className="h2">{blog.title}</h2>
                 <p>
                   {contentDetails.displayContent}
                   {contentDetails.isTruncated && <span>...</span>}
