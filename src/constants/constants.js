@@ -8,4 +8,6 @@ const filter = {
     BY_TIME_RANGE: "by time range"
 }
 
-export { sortOrder, filter };
+const contentLength = 80;
+
+export { sortOrder, filter, contentLength };

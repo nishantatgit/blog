@@ -11,11 +11,19 @@ import { useNavigate, generatePath } from "react-router-dom";
 import routes from "../../constants/routes";
 import delay from "../../utilities/delay";
 import getLocaleDate from "../../utilities/getLocaleDate";
+import { contentLength } from "../../constants/constants";
 
 function Homepage() {
   const { state, dispatch } = useContext(AppContext);
   const [sortBy, setSortBy] = useState(sortOrder.BY_DATE_CREATED);
   const [filterBy, setFilterBy] = useState(filter.BY_TIME_RANGE);
+
+  function getContentDisplayData(blog) {
+    return {
+      isTruncated:  blog.length > contentLength,
+      displayContent: blog?.substr(0, contentLength),
+    };
+  }
 
   const navigate = useNavigate();
 
@@ -65,23 +73,29 @@ function Homepage() {
 
   function getBlogTiles(blogsList) {
     return blogsList.map((blog) => {
+      const contentDetails = getContentDisplayData(blog.content);
       return (
-        <li key={blog.postId} className="mt-12 pb-2 border-bottom">
-          <div className="tile row">
-            <div className="col-8">
-            <h2 className="h5">{blog.title}</h2>
-            <div><span>{getLocaleDate(blog.lastModifiedAt)}</span></div>
+        <a
+          href="#"
+          className="text-black link-secondary link-underline-opacity-0"
+          onClick={readMoreClickHandler.bind(null, blog.postId)}
+        >
+          <li key={blog.postId} className="mt-12 pb-2 border-bottom">
+            <div className="tile row">
+              <div className="col-12">
+                <h2 className="h5">{blog.title}</h2>
+                <p>
+                  {contentDetails.displayContent}
+                  {contentDetails.isTruncated && <span>...</span>}
+                </p>
+
+                <div>
+                  <span className="text-secondary">{getLocaleDate(blog.lastModifiedAt)}</span>
+                </div>
+              </div>
             </div>
-            <div className="col-4 text-right">
-            <button
-              className="btn btn-primary"
-              onClick={readMoreClickHandler.bind(null, blog.postId)}
-            >
-              {homepageStrings.readMoreButtonLabel}
-            </button>
-            </div>
-          </div>
-        </li>
+          </li>
+        </a>
       );
     });
   }
@@ -91,7 +105,7 @@ function Homepage() {
     return (
       <div className="tile-list row">
         <div className="col-md-10 offset-md-1">
-        <ul>{getBlogTiles(orderedBlogList)}</ul>
+          <ul>{getBlogTiles(orderedBlogList)}</ul>
         </div>
       </div>
     );
@@ -115,7 +129,7 @@ function Homepage() {
     getAllPosts();
   }, []);
 
-  return !!state.blogs.length ? getBlogsList(state.blogs) : <Loader/>;
+  return !!state.blogs.length ? getBlogsList(state.blogs) : <Loader />;
 }
 
 export default Homepage;
